@@ -9,71 +9,120 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ===== GRID (3x3 دسکتاپ / 2x تبلت / 1x موبایل) ===== */
-.grid-container{
+/* =================== HEADER =================== */
+.header {
+  margin: 32px 0 28px;
+  text-align: center;
+  line-height: 1.5;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* ---------- LOGO SECTION ---------- */
+.landing-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 12px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.landing-logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.landing-logo-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(0, 180, 216, 0.1);
+  padding: 4px;
+}
+
+.landing-logo-text {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0077b6;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.landing-logo-text .brand {
+  color: #00a8d6;
+  text-shadow: 0 0 8px rgba(0, 180, 216, 0.3);
+}
+
+/* ---------- SUBTITLE & TAGLINE ---------- */
+.subtitle {
+  color: #333;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.tagline {
+  color: #555;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+/* =================== GRID LAYOUT =================== */
+.grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);   /* دسکتاپ: 3 ستون */
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   width: 100%;
   max-width: 1200px;
-  margin: 16px auto 0;
+  margin: 20px auto 0;
   padding: 0 16px;
 }
 
-/* کارت‌ها ستون را کامل پر کنند */
-.grid-container > *{ width: 100%; }
+.grid-container > * {
+  width: 100%;
+}
 
 /* تبلت */
-@media (max-width: 1024px){
-  .grid-container{ grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* موبایل */
-@media (max-width: 640px){
-  .grid-container{ grid-template-columns: 1fr; }
+@media (max-width: 640px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* =================== HEADER (کوچک و جمع‌وجور) =================== */
-.header{
-  margin: 8px 0 12px;
-}
-.header h1{
-  color: #0077b6;
-  font-size: 26px;      /* کوچک‌تر شد */
-  font-weight: 800;
-  margin: 0 0 6px;
-  line-height: 1.25;
-}
-.header p{
-  color: #555;
-  font-size: 15px;
-  margin: 0;
-}
-
-/* =================== LIGHT MODE =================== */
-.landing-page { background-color: #f5f8fa; color: #222; }
-
-.product-card{
+/* =================== PRODUCT CARD =================== */
+.product-card {
   background: #fff;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
   padding: 16px;
-  width: 100%;                 /* ⬅ کارت تمام ستون را بگیرد */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform .2s ease, box-shadow .25s ease;
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
 }
-.product-card:hover{
+
+.product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0,119,182,.15);
+  box-shadow: 0 8px 20px rgba(0, 119, 182, 0.15);
 }
 
 /* IMAGE */
-.product-card img{
+.product-card img {
   width: 100%;
-  height: 180px;               /* ارتفاع ثابت برای نظم گرید */
+  height: 180px;
   object-fit: contain;
   border-radius: 10px;
   background: #f2f5f8;
@@ -81,12 +130,20 @@
   display: block;
 }
 
-.product-card h3{ margin: 12px 0 6px; font-size: 16px; color: #111; }
-.price{ color:#0077b6; font-weight:700; }
+.product-card h3 {
+  margin: 12px 0 6px;
+  font-size: 16px;
+  color: #111;
+}
+
+.price {
+  color: #0077b6;
+  font-weight: 700;
+}
 
 /* BUTTONS */
-.product-card button{
-  background: linear-gradient(135deg,#0096c7,#0077b6);
+.product-card button {
+  background: linear-gradient(135deg, #0096c7, #0077b6);
   border: none;
   color: #fff;
   padding: 10px 14px;
@@ -94,13 +151,60 @@
   font-weight: 700;
   font-size: 15px;
   cursor: pointer;
-  transition: transform .15s ease, filter .2s ease;
+  transition: transform 0.15s ease, filter 0.2s ease;
   margin-top: 12px;
 }
-.product-card button:hover{ transform: scale(1.03); filter: brightness(1.05); }
+.product-card button:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+}
 
-/* FOOTER */
-.footer{
+/* =================== COUNTER =================== */
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.plus-btn,
+.minus-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  transition: transform 0.15s ease, filter 0.2s ease;
+}
+
+.plus-btn {
+  background: #00bfa6;
+}
+
+.plus-btn:hover {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+.minus-btn {
+  background: #dc3545;
+}
+
+.minus-btn:hover {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+.count {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* =================== FOOTER =================== */
+.footer {
   margin-top: 40px;
   color: #444;
   border-top: 1px solid #ccc;
@@ -110,47 +214,98 @@
 }
 
 /* =================== DARK MODE =================== */
-.dark .landing-page{ background:#0d0d0d; color:#e0e0e0; }
-.dark .header h1{ color:#00eaff; text-shadow:0 0 10px rgba(0,238,255,.6); }
-.dark .header p{ color:#bdbdbd; }
+.dark .landing-page {
+  background: #0d0d0d;
+  color: #e0e0e0;
+}
 
-.dark .product-card{
-  background: rgba(25,25,25,.9);
-  border: 1px solid rgba(0,255,255,.15);
-  box-shadow: 0 0 18px rgba(0,255,255,.06);
+.dark .landing-logo {
+  background: rgba(25, 25, 25, 0.75);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.08);
 }
-.dark .product-card img{ background: rgba(255,255,255,.04); }
-.dark .product-card h3{ color:#fff; }
-.dark .price{ color:#00ffff; }
-.dark .product-card button{
-  background: linear-gradient(135deg,#00eaff,#007a99);
-  box-shadow: 0 0 14px rgba(0,238,255,.25);
+
+.dark .landing-logo-text {
+  color: #00eaff;
 }
-.dark .product-card button:hover{
-  box-shadow: 0 0 22px rgba(0,238,255,.45);
+
+.dark .landing-logo-text .brand {
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+.dark .subtitle {
+  color: #bbb;
+}
+
+.dark .tagline {
+  color: #ccc;
+}
+
+.dark .product-card {
+  background: rgba(25, 25, 25, 0.9);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.06);
+}
+
+.dark .product-card img {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dark .product-card h3 {
+  color: #fff;
+}
+
+.dark .price {
+  color: #00ffff;
+}
+
+.dark .product-card button {
+  background: linear-gradient(135deg, #00eaff, #007a99);
+  box-shadow: 0 0 14px rgba(0, 238, 255, 0.25);
+}
+
+.dark .product-card button:hover {
+  box-shadow: 0 0 22px rgba(0, 238, 255, 0.45);
   transform: scale(1.03);
 }
-.dark .footer{ color:#aaa; border-top:1px solid rgba(0,255,255,.12); }
 
-/* =================== COUNTER =================== */
-.counter{
-  display:flex; align-items:center; justify-content:center;
-  gap:10px; margin-top:12px;
+.dark .footer {
+  color: #aaa;
+  border-top: 1px solid rgba(0, 255, 255, 0.12);
 }
-.plus-btn,.minus-btn{
-  border:none; padding:8px 12px; border-radius:6px;
-  cursor:pointer; font-size:16px; font-weight:700; color:#fff;
-  transition: transform .15s ease, filter .2s ease;
-}
-.plus-btn{ background:#00bfa6; }
-.plus-btn:hover{ transform:scale(1.08); filter:brightness(1.05); }
-.minus-btn{ background:#dc3545; }
-.minus-btn:hover{ transform:scale(1.08); filter:brightness(1.05); }
-.count{ font-size:16px; font-weight:700; }
 
-/* =================== EXTRA MOBILE TWEAKS =================== */
-@media (max-width: 640px){
-  .header h1{ font-size: 22px; }
-  .header p{ font-size: 14px; }
-  .product-card img{ height: 160px; }
+/* =================== RESPONSIVE =================== */
+@media (max-width: 640px) {
+  .landing-logo-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .landing-logo-text {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .tagline {
+    font-size: 13px;
+  }
+
+  .product-card img {
+    height: 160px;
+  }
+}
+
+/* =================== ANIMATIONS =================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

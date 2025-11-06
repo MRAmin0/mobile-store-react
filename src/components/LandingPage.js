@@ -42,11 +42,24 @@ export default function LandingPage({ addToCart }) {
     return (
         <div className="landing-page">
             <header className="header">
-                <h1>فروشگاه اینترنتی MobileLand 📱</h1>
+                <div className="landing-logo">
+                    <img
+                        src="/favicon.ico"
+                        alt="MobileLand Logo"
+                        className="landing-logo-icon"
+                    />
+                    <div className="landing-logo-text">
+                        <h1>
+                            فروشگاه اینترنتی <span className="brand">MobileLand</span>
+                        </h1>
+                        <p className="slogan">همراه شما با جدیدترین موبایل‌های روز دنیا 📱</p>
+                    </div>
+                </div>
+
                 <p className="subtitle">
-                    جایی برای عاشقان تکنولوژی!
-                    جدیدترین مدل‌های موبایل از برندهای برتر دنیا با بهترین قیمت و ضمانت اصالت کالا.
+                    جایی برای عاشقان تکنولوژی! جدیدترین مدل‌های موبایل از برندهای برتر دنیا با بهترین قیمت و ضمانت اصالت کالا.
                 </p>
+
                 <p className="tagline">
                     🚚 ارسال سریع | 💳 پرداخت امن | 🛠 پشتیبانی ۲۴ ساعته
                 </p>

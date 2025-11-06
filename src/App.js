@@ -9,6 +9,8 @@ import AboutPage from "./components/AboutPage";
 import ContactPage from "./components/ContactPage";
 import AuthPage from "./components/AuthPage";
 import CartPage from "./components/CartPage";
+import Footer from "./components/Footer";
+
 import "./App.css";
 
 function App() {
@@ -53,10 +55,17 @@ function App() {
 
   return (
     <div className={`app-container ${dark ? "dark" : ""}`}>
-      {/* ======= NAVBAR ======= */}
       <nav className="navbar">
         <div className="nav-header">
-          <h2 className="nav-logo">📱 فروشگاه موبایل</h2>
+          <Link to="/" className="nav-logo" onClick={() => setMenuOpen(false)}>
+            <img
+              src="/favicon.ico"
+              alt="MobileLand Logo"
+              className="nav-logo-icon"
+            />
+            <span className="nav-logo-text">MobileLand</span>
+          </Link>
+
           <button
             className="hamburger"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -81,7 +90,9 @@ function App() {
           ) : (
             <div className="user-info">
               <span>👋 {username}</span>
-              <button onClick={handleLogout}>خروج</button>
+              <button className="logout-btn" onClick={handleLogout}>
+                خروج
+              </button>
             </div>
           )}
 
@@ -93,6 +104,7 @@ function App() {
           </button>
         </div>
       </nav>
+
 
       {/* ======= ROUTES ======= */}
       <Routes>
@@ -113,7 +125,9 @@ function App() {
       </Routes>
 
       <ToastContainer position="bottom-right" autoClose={2000} />
+      <Footer />
     </div>
+
   );
 }
 
