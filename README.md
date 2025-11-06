@@ -7,7 +7,7 @@
 
 ## 🚀 دمو آنلاین
 
-🔗 [مشاهده پروژه در Netlify](https://mobilelanding-store.netlify.app)
+🔗 [مشاهده پروژه در Netlify](https://mobileland-store.netlify.app/)
 
 
 
