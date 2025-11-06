@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 import LandingPage from "./components/LandingPage";
 import AboutPage from "./components/AboutPage";
 import ContactPage from "./components/ContactPage";
 import AuthPage from "./components/AuthPage";
 import CartPage from "./components/CartPage";
-
 import "./App.css";
 
 function App() {
   const [dark, setDark] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [username, setUsername] = useState(localStorage.getItem("loggedInUser"));
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart");
-    return savedCart ? JSON.parse(savedCart) : []; // خواندن سبد خرید از localStorage
+    return savedCart ? JSON.parse(savedCart) : [];
   });
 
-  // ذخیره سبد خرید در localStorage بعد از هر تغییر
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
@@ -37,13 +37,13 @@ function App() {
 
   const clearCart = () => {
     setCart([]);
-    localStorage.removeItem("cart"); // پاکسازی داده‌های سبد خرید از localStorage
+    localStorage.removeItem("cart");
     toast.success("سبد خرید خالی شد.");
   };
 
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
-    localStorage.removeItem("cart"); // پاکسازی سبد خرید از localStorage بعد از خروج
+    localStorage.removeItem("cart");
     setUsername(null);
     toast.success("با موفقیت از حساب خارج شدید ✅");
     setTimeout(() => {
@@ -53,49 +53,66 @@ function App() {
 
   return (
     <div className={`app-container ${dark ? "dark" : ""}`}>
-      <Router>
-        <nav className="navbar">
-          <Link to="/" className="nav-btn">خانه</Link>
-          <Link to="/about" className="nav-btn">درباره ما</Link>
-          <Link to="/contact" className="nav-btn">تماس با ما</Link>
-          <Link to="/cart" className="nav-btn">🛒 سبد خرید ({cart.length})</Link>
+      {/* ======= NAVBAR ======= */}
+      <nav className="navbar">
+        <div className="nav-header">
+          <h2 className="nav-logo">📱 فروشگاه موبایل</h2>
+          <button
+            className="hamburger"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle Menu"
+          >
+            {menuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+          </button>
+        </div>
+
+        <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <Link to="/" onClick={() => setMenuOpen(false)}>خانه</Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)}>درباره ما</Link>
+          <Link to="/contact" onClick={() => setMenuOpen(false)}>تماس با ما</Link>
+          <Link to="/cart" onClick={() => setMenuOpen(false)}>
+            🛒 سبد خرید ({cart.length})
+          </Link>
 
           {!username ? (
-            <Link to="/auth" className="nav-btn">ورود / ثبت‌نام</Link>
+            <Link to="/auth" onClick={() => setMenuOpen(false)}>
+              ورود / ثبت‌نام
+            </Link>
           ) : (
             <div className="user-info">
-              <span className="welcome-text">خوش آمدی، {username} 👋</span>
-              <button className="logout-btn" onClick={handleLogout}>خروج</button>
+              <span>👋 {username}</span>
+              <button onClick={handleLogout}>خروج</button>
             </div>
           )}
 
-          <button className="mode-toggle" onClick={() => setDark(!dark)}>
-            {dark ? "☀️ حالت روشن" : "🌙 حالت تاریک"}
+          <button
+            className="mode-toggle"
+            onClick={() => setDark(!dark)}
+          >
+            {dark ? "☀️ روشن" : "🌙 تاریک"}
           </button>
-        </nav>
+        </div>
+      </nav>
 
-        <Routes>
-          <Route
-            path="/"
-            element={<LandingPage addToCart={addToCart} />} // ارسال تابع به صفحه محصولات
-          />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/auth" element={<AuthPage />} />
-          <Route
-            path="/cart"
-            element={
-              <CartPage
-                cart={cart}
-                removeFromCart={removeFromCart}
-                clearCart={clearCart}
-              />
-            }
-          />
-        </Routes>
+      {/* ======= ROUTES ======= */}
+      <Routes>
+        <Route path="/" element={<LandingPage addToCart={addToCart} />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route
+          path="/cart"
+          element={
+            <CartPage
+              cart={cart}
+              removeFromCart={removeFromCart}
+              clearCart={clearCart}
+            />
+          }
+        />
+      </Routes>
 
-        <ToastContainer position="bottom-right" autoClose={2000} />
-      </Router>
+      <ToastContainer position="bottom-right" autoClose={2000} />
     </div>
   );
 }

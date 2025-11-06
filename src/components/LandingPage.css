@@ -1,282 +1,156 @@
+/* =================== BASE =================== */
 .landing-page {
-  padding: 40px;
+  padding: 24px 0 48px;
   text-align: center;
-  background-color: #f9f9f9;
   min-height: 100vh;
-  transition: background-color 0.4s ease, color 0.4s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ----- HEADER ----- */
-.header {
-  margin-top: 20px;  /* اضافه کردن فاصله از بالای صفحه */
-  margin-bottom: 40px;
-  text-align: center; /* مطمئن می‌شویم که متن در وسط قرار دارد */
-}
-
-.header h1 {
-  color: #7b2ff7;
-  margin-bottom: 10px;
-  font-size: 36px;
-  font-weight: 700;
-}
-
-.header p {
-  color: #555;
-  font-size: 18px;
-}
-
-
-/* ----- GRID LAYOUT ----- */
-.grid-container {
+/* ===== GRID (3x3 دسکتاپ / 2x تبلت / 1x موبایل) ===== */
+.grid-container{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);   /* دسکتاپ: 3 ستون */
+  gap: 24px;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
+  margin: 16px auto 0;
+  padding: 0 16px;
 }
 
-/* ----- PRODUCT CARD ----- */
-.product-card {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 100%;
-  max-width: 280px;
-  transition: transform 0.2s ease, box-shadow 0.3s;
+/* کارت‌ها ستون را کامل پر کنند */
+.grid-container > *{ width: 100%; }
+
+/* تبلت */
+@media (max-width: 1024px){
+  .grid-container{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* موبایل */
+@media (max-width: 640px){
+  .grid-container{ grid-template-columns: 1fr; }
+}
+
+/* =================== HEADER (کوچک و جمع‌وجور) =================== */
+.header{
+  margin: 8px 0 12px;
+}
+.header h1{
+  color: #0077b6;
+  font-size: 26px;      /* کوچک‌تر شد */
+  font-weight: 800;
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+.header p{
+  color: #555;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* =================== LIGHT MODE =================== */
+.landing-page { background-color: #f5f8fa; color: #222; }
+
+.product-card{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  padding: 16px;
+  width: 100%;                 /* ⬅ کارت تمام ستون را بگیرد */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform .2s ease, box-shadow .25s ease;
+}
+.product-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,119,182,.15);
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* ----- IMAGE ----- */
-.product-card img {
+/* IMAGE */
+.product-card img{
   width: 100%;
-  height: 160px;
-  object-fit: contain; /* ✅ از cover به contain تغییر بده */
+  height: 180px;               /* ارتفاع ثابت برای نظم گرید */
+  object-fit: contain;
   border-radius: 10px;
-  margin-top: 10px;
-  background-color: #f8f8f8; /* ✅ پس‌زمینه خنثی برای عکس‌های عمودی */
-  padding: 5px; /* ✅ کمی فاصله برای تعادل بهتر */
+  background: #f2f5f8;
+  padding: 8px;
+  display: block;
 }
 
+.product-card h3{ margin: 12px 0 6px; font-size: 16px; color: #111; }
+.price{ color:#0077b6; font-weight:700; }
 
-
-.product-card img:hover {
-  transform: scale(1.05);
-}
-
-/* ----- TEXT ----- */
-.product-card h3 {
-  margin-top: 15px;
-  font-size: 18px;
-  color: #333;
-}
-
-.price {
-  color: #7b2ff7;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/* ----- BUTTON ----- */
-.product-card button {
-  background: linear-gradient(135deg, #7b2ff7, #f107a3);
+/* BUTTONS */
+.product-card button{
+  background: linear-gradient(135deg,#0096c7,#0077b6);
   border: none;
-  color: white;
-  padding: 10px 15px;
+  color: #fff;
+  padding: 10px 14px;
   border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-  font-weight: bold;
-  font-size: 16px;
-  margin-top: 15px;
+  transition: transform .15s ease, filter .2s ease;
+  margin-top: 12px;
 }
+.product-card button:hover{ transform: scale(1.03); filter: brightness(1.05); }
 
-.product-card button:hover {
-  transform: scale(1.05);
-}
-
-/* ----- FOOTER ----- */
-.footer {
-  margin-top: 60px;
-  font-size: 18px;
-  color: #333;
-  padding: 10px 0;
-  border-top: 1px solid #ddd;
+/* FOOTER */
+.footer{
+  margin-top: 40px;
+  color: #444;
+  border-top: 1px solid #ccc;
+  padding: 14px 0;
   width: 100%;
   text-align: center;
 }
 
-/* 🌙 DARK MODE */
-.dark .landing-page {
-  background-color: #121212;
-  color: #eee;
+/* =================== DARK MODE =================== */
+.dark .landing-page{ background:#0d0d0d; color:#e0e0e0; }
+.dark .header h1{ color:#00eaff; text-shadow:0 0 10px rgba(0,238,255,.6); }
+.dark .header p{ color:#bdbdbd; }
+
+.dark .product-card{
+  background: rgba(25,25,25,.9);
+  border: 1px solid rgba(0,255,255,.15);
+  box-shadow: 0 0 18px rgba(0,255,255,.06);
 }
-
-.dark .header h1 {
-  color: #bb86fc;
+.dark .product-card img{ background: rgba(255,255,255,.04); }
+.dark .product-card h3{ color:#fff; }
+.dark .price{ color:#00ffff; }
+.dark .product-card button{
+  background: linear-gradient(135deg,#00eaff,#007a99);
+  box-shadow: 0 0 14px rgba(0,238,255,.25);
 }
-
-.dark .header p {
-  color: #ccc;
+.dark .product-card button:hover{
+  box-shadow: 0 0 22px rgba(0,238,255,.45);
+  transform: scale(1.03);
 }
+.dark .footer{ color:#aaa; border-top:1px solid rgba(0,255,255,.12); }
 
-.dark .product-card {
-  background-color: #1e1e1e;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+/* =================== COUNTER =================== */
+.counter{
+  display:flex; align-items:center; justify-content:center;
+  gap:10px; margin-top:12px;
 }
-
-.dark .product-card h3 {
-  color: #f0f0f0;
+.plus-btn,.minus-btn{
+  border:none; padding:8px 12px; border-radius:6px;
+  cursor:pointer; font-size:16px; font-weight:700; color:#fff;
+  transition: transform .15s ease, filter .2s ease;
 }
+.plus-btn{ background:#00bfa6; }
+.plus-btn:hover{ transform:scale(1.08); filter:brightness(1.05); }
+.minus-btn{ background:#dc3545; }
+.minus-btn:hover{ transform:scale(1.08); filter:brightness(1.05); }
+.count{ font-size:16px; font-weight:700; }
 
-.dark .product-card button {
-  background: linear-gradient(135deg, #9b5de5, #7b2ff7);
-  color: white;
-}
-
-.dark .product-card button:hover {
-  transform: scale(1.05);
-  filter: brightness(1.2);
-}
-
-.dark .price {
-  color: #bb86fc;
-}
-
-.dark .footer {
-  color: #aaa;
-  border-top: 1px solid #333;
-}
-/* ----- COUNTER STYLE ----- */
-.counter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.count {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  min-width: 24px;
-  text-align: center;
-}
-
-/* دکمه سبز (+) */
-.plus-btn {
-  background-color: #28a745;
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: transform 0.2s, background-color 0.2s;
-}
-
-.plus-btn:hover {
-  background-color: #34ce57;
-  transform: scale(1.1);
-}
-
-/* دکمه قرمز (–) */
-.minus-btn {
-  background-color: #dc3545;
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: transform 0.2s, background-color 0.2s;
-}
-
-.minus-btn:hover {
-  background-color: #e55361;
-  transform: scale(1.1);
-}
-
-/* DARK MODE سازگاری با  */
-.dark .count {
-  color: #f0f0f0;
-}
-
-.dark .plus-btn {
-  background-color: #3ccf63;
-}
-
-.dark .minus-btn {
-  background-color: #ff4d4d;
-}
-/* 📱 ریسپانسیو برای موبایل */
-@media (max-width: 768px) {
-  .landing-page {
-    padding: 20px;
-  }
-
-  .header h1 {
-    font-size: 28px;
-  }
-
-  .header p {
-    font-size: 16px;
-  }
-
-  .grid-container {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-  }
-
-  .product-card {
-    max-width: 100%;
-    padding: 15px;
-  }
-
-  .product-card img {
-    height: 140px;
-  }
-
-  .price {
-    font-size: 14px;
-  }
-
-  .add-btn,
-  .plus-btn,
-  .minus-btn {
-    font-size: 14px;
-    padding: 8px 10px;
-  }
-
-  .footer {
-    font-size: 14px;
-  }
-}
-
-/* 📱 ریسپانسیو برای گوشی‌های خیلی کوچک */
-@media (max-width: 480px) {
-  .header h1 {
-    font-size: 24px;
-  }
-
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
-
-  .product-card img {
-    height: 120px;
-  }
+/* =================== EXTRA MOBILE TWEAKS =================== */
+@media (max-width: 640px){
+  .header h1{ font-size: 22px; }
+  .header p{ font-size: 14px; }
+  .product-card img{ height: 160px; }
 }
