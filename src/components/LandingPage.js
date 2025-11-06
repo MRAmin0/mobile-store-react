@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./LandingPage.css";
 
 export default function LandingPage({ addToCart }) {
-    const [cartCounts, setCartCounts] = useState({}); // هر محصول یه شمارنده داره
+    const [cartCounts, setCartCounts] = useState({});
 
     const products = [
         { id: 1, name: "iPhone 15 Pro", price: 79900000, img: "/images/iphone15.png" },
@@ -17,7 +17,6 @@ export default function LandingPage({ addToCart }) {
         { id: 9, name: "Asus ROG Phone 8", price: 62900000, img: "/images/rog8.png" },
     ];
 
-    // محاسبه تعداد کل محصولات در سبد
     const totalItems = Object.values(cartCounts).reduce((a, b) => a + b, 0);
 
     const handleAdd = (p) => {
@@ -52,7 +51,14 @@ export default function LandingPage({ addToCart }) {
                     const count = cartCounts[p.id] || 0;
                     return (
                         <div key={p.id} className="product-card">
-                            <img src={p.img} alt={p.name} />
+                            {/* ✅ Lazy loading برای تصاویر */}
+                            <img
+                                src={p.img}
+                                alt={p.name}
+                                loading="lazy"
+                                className="product-image"
+                            />
+
                             <h3>{p.name}</h3>
                             <p className="price">{p.price.toLocaleString()} تومان</p>
 

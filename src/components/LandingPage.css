@@ -222,3 +222,61 @@
 .dark .minus-btn {
   background-color: #ff4d4d;
 }
+/* 📱 ریسپانسیو برای موبایل */
+@media (max-width: 768px) {
+  .landing-page {
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .header p {
+    font-size: 16px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .product-card {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .product-card img {
+    height: 140px;
+  }
+
+  .price {
+    font-size: 14px;
+  }
+
+  .add-btn,
+  .plus-btn,
+  .minus-btn {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .footer {
+    font-size: 14px;
+  }
+}
+
+/* 📱 ریسپانسیو برای گوشی‌های خیلی کوچک */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card img {
+    height: 120px;
+  }
+}
