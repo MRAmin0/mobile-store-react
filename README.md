@@ -7,7 +7,7 @@
 
 ## 🚀 دمو آنلاین
 
-🔗 [مشاهده پروژه در GitHub Pages](https://mramin0.github.io/mobile-store-react)
+🔗 [مشاهده پروژه در Netlify](https://mobilelanding-store.netlify.app)
 
 
 
