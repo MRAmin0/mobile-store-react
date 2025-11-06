@@ -1,0 +1,224 @@
+.landing-page {
+  padding: 40px;
+  text-align: center;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ----- HEADER ----- */
+.header {
+  margin-top: 20px;  /* اضافه کردن فاصله از بالای صفحه */
+  margin-bottom: 40px;
+  text-align: center; /* مطمئن می‌شویم که متن در وسط قرار دارد */
+}
+
+.header h1 {
+  color: #7b2ff7;
+  margin-bottom: 10px;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.header p {
+  color: #555;
+  font-size: 18px;
+}
+
+
+/* ----- GRID LAYOUT ----- */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* ----- PRODUCT CARD ----- */
+.product-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 280px;
+  transition: transform 0.2s ease, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ----- IMAGE ----- */
+.product-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain; /* ✅ از cover به contain تغییر بده */
+  border-radius: 10px;
+  margin-top: 10px;
+  background-color: #f8f8f8; /* ✅ پس‌زمینه خنثی برای عکس‌های عمودی */
+  padding: 5px; /* ✅ کمی فاصله برای تعادل بهتر */
+}
+
+
+
+.product-card img:hover {
+  transform: scale(1.05);
+}
+
+/* ----- TEXT ----- */
+.product-card h3 {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #333;
+}
+
+.price {
+  color: #7b2ff7;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* ----- BUTTON ----- */
+.product-card button {
+  background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.product-card button:hover {
+  transform: scale(1.05);
+}
+
+/* ----- FOOTER ----- */
+.footer {
+  margin-top: 60px;
+  font-size: 18px;
+  color: #333;
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
+  width: 100%;
+  text-align: center;
+}
+
+/* 🌙 DARK MODE */
+.dark .landing-page {
+  background-color: #121212;
+  color: #eee;
+}
+
+.dark .header h1 {
+  color: #bb86fc;
+}
+
+.dark .header p {
+  color: #ccc;
+}
+
+.dark .product-card {
+  background-color: #1e1e1e;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.dark .product-card h3 {
+  color: #f0f0f0;
+}
+
+.dark .product-card button {
+  background: linear-gradient(135deg, #9b5de5, #7b2ff7);
+  color: white;
+}
+
+.dark .product-card button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+.dark .price {
+  color: #bb86fc;
+}
+
+.dark .footer {
+  color: #aaa;
+  border-top: 1px solid #333;
+}
+/* ----- COUNTER STYLE ----- */
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.count {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  min-width: 24px;
+  text-align: center;
+}
+
+/* دکمه سبز (+) */
+.plus-btn {
+  background-color: #28a745;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.plus-btn:hover {
+  background-color: #34ce57;
+  transform: scale(1.1);
+}
+
+/* دکمه قرمز (–) */
+.minus-btn {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.minus-btn:hover {
+  background-color: #e55361;
+  transform: scale(1.1);
+}
+
+/* DARK MODE سازگاری با  */
+.dark .count {
+  color: #f0f0f0;
+}
+
+.dark .plus-btn {
+  background-color: #3ccf63;
+}
+
+.dark .minus-btn {
+  background-color: #ff4d4d;
+}

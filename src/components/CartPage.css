@@ -1,0 +1,142 @@
+/* ======================
+   ساختار اصلی سبد خرید
+====================== */
+.cart-page {
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  padding: 40px 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cart-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 15px; /* گوشه‌های گرد */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* سایه شبیه تماس با ما */
+  direction: rtl;
+  text-align: right;
+}
+
+/* عنوان سبد خرید */
+.cart-container h1 {
+  color: #7b2ff7; /* همان رنگ سبد خرید */
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* محتوای سبد خرید */
+.cart-container ul {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+/* ----- CART ITEM ----- */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cart-item img {
+  width: 80px; /* اندازه تصویر */
+  height: 80px;
+  object-fit: contain;
+  margin-right: 20px; /* فاصله مناسب بین تصویر و متن */
+}
+
+.cart-item .info {
+  flex: 1;
+}
+
+.cart-item .info span {
+  display: block;
+  margin-top: 10px; /* فاصله بین نام و قیمت */
+}
+
+.cart-item .info .price {
+  color: #7b2ff7;
+  font-weight: bold;
+}
+
+.cart-item button {
+  background: #f107a3;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-item button:hover {
+  background: #7b2ff7;
+}
+
+/* نمایش جمع کل */
+.total-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #6200ee;
+  text-align: left;
+  margin-top: 20px;
+}
+
+/* دکمه خالی کردن سبد */
+.clear-btn {
+  background-color: #6200ee;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.clear-btn:hover {
+  background-color: #4500b5;
+}
+
+/* 🌙 حالت تاریک */
+.dark .cart-page {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.dark .cart-container {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.dark .cart-container h1 {
+  color: #bb86fc;
+}
+
+.dark .cart-item button {
+  background: #bb86fc;
+  color: white;
+}
+
+.dark .cart-item button:hover {
+  background: #6200ee;
+}
+
+.dark .total-price {
+  color: #bb86fc;
+}
+
+.dark .clear-btn {
+  background-color: #9b5de5;
+}
+
+.dark .clear-btn:hover {
+  background-color: #7b2ff7;
+}

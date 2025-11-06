@@ -1,0 +1,126 @@
+/* ======================
+   ساختار اصلی صفحه تماس
+====================== */
+.contact-page {
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  padding: 40px 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  direction: rtl;
+  text-align: right;
+}
+
+.contact-container h1 {
+  color: #6200ee;
+}
+
+.contact-container p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.contact-form button {
+  background-color: #6200ee;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #4500b5;
+}
+
+/* ======================
+   🌙 دارک مود کامل
+====================== */
+
+/* ریست پیش‌فرض مرورگر برای حذف فاصله سفید بالا */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* بک‌گراند کل صفحه در حالت تاریک */
+.dark html,
+.dark body {
+  background-color: #121212 !important;
+  color: #f0f0f0 !important;
+  min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* بخش اصلی صفحه تماس */
+.dark .contact-page {
+  background-color: #121212 !important;
+  color: #f0f0f0 !important;
+  min-height: 100vh;
+}
+
+/* باکس وسط */
+.dark .contact-container {
+  background-color: #1e1e1e !important;
+  color: #f0f0f0 !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* نوشته‌ها */
+.dark .contact-container h1,
+.dark .contact-container p {
+  color: #f0f0f0 !important;
+}
+
+/* فیلدهای فرم */
+.dark .contact-form input,
+.dark .contact-form textarea {
+  background-color: #2c2c2c !important;
+  color: #f0f0f0 !important;
+  border: 1px solid #555 !important;
+}
+
+/* دکمه */
+.dark .contact-form button {
+  background: linear-gradient(135deg, #9b5de5, #7b2ff7) !important;
+  color: #fff !important;
+  border: none !important;
+  transition: 0.3s ease;
+}
+
+.dark .contact-form button:hover {
+  filter: brightness(1.2);
+}

@@ -1,0 +1,189 @@
+/* ===========================
+   🔹 طراحی کلی فرم ورود / ثبت‌نام
+=========================== */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  font-family: "Vazirmatn", sans-serif;
+  direction: rtl;
+}
+
+.auth-box {
+  display: flex;
+  width: 900px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+}
+
+/* ===========================
+   🔸 بخش چپ (پنل خوش‌آمد)
+=========================== */
+.left-panel {
+  flex: 1;
+  background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  color: white;
+  padding: 50px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.left-panel button {
+  margin-top: 20px;
+  background: white;
+  color: #7b2ff7;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.left-panel button:hover {
+  background: #eee;
+}
+
+/* ===========================
+   🔹 بخش راست (فرم)
+=========================== */
+.right-panel {
+  flex: 1;
+  padding: 50px;
+  text-align: right;
+}
+
+.right-panel h1 {
+  color: #7b2ff7;
+  margin-bottom: 20px;
+}
+
+.right-panel input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.right-panel input:focus {
+  border-color: #7b2ff7;
+  outline: none;
+}
+
+/* ===========================
+   👁️ فیلد رمز با آیکن چشم (اصلاح‌شده)
+=========================== */
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 42px; /* جا برای آیکن */
+  padding-left: 10px;
+  height: 42px;
+  line-height: 42px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 65%;
+  transform: translateY(-50%);
+  color: #6200ee;
+  cursor: pointer;
+  font-size: 19px;
+  transition: 0.3s;
+}
+
+.eye-icon:hover {
+  color: #9b5de5;
+}
+
+/* ===========================
+   🔸 دکمه ورود / ثبت‌نام
+=========================== */
+.right-panel button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px;
+  background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.right-panel button:hover {
+  transform: scale(1.03);
+}
+
+/* ===========================
+   🌙 حالت تاریک
+=========================== */
+.dark .auth-container {
+  background: linear-gradient(135deg, #1f1f1f, #121212);
+  color: #f0f0f0;
+}
+
+.dark .auth-box {
+  background: #2a2a2a;
+  color: #f0f0f0;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.dark .left-panel {
+  background: linear-gradient(135deg, #3a0ca3, #7209b7);
+}
+
+.dark .left-panel button {
+  background: #f0f0f0;
+  color: #3a0ca3;
+}
+
+.dark .right-panel input {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #f0f0f0;
+}
+
+.dark .right-panel button {
+  background: linear-gradient(135deg, #9b5de5, #7b2ff7);
+}
+
+.dark .eye-icon {
+  color: #bb86fc;
+}
+.auth-container {
+  background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  font-family: "Vazirmatn", sans-serif;
+  direction: rtl;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.auth-box {
+  border: none;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}

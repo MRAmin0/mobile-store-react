@@ -1,0 +1,165 @@
+/* ---------- تنظیمات پایه ---------- */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Vazirmatn", sans-serif;
+}
+
+.app-container {
+  background-color: #f9f9f9;
+  color: #333;
+  transition: background-color 0.6s ease, color 0.6s ease;
+  min-height: 100vh;
+}
+
+/* 🌙 حالت تاریک */
+.app-container.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+/* ---------- فاصله برای زیر Navbar ---------- */
+body {
+  padding-top: 80px; /* تا محتوا زیر Navbar نره */
+}
+
+/* ---------- Navbar مدرن و شیشه‌ای ---------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 15px 30px;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(135deg, rgba(98, 0, 238, 0.85), rgba(155, 93, 229, 0.85));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.6s ease;
+  animation: fadeSlide 0.6s ease;
+}
+
+/* 🌙 حالت دارک Navbar */
+.app-container.dark .navbar {
+  background: rgba(25, 25, 25, 0.8);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- لینک‌ها ---------- */
+.nav-btn {
+  background: rgba(255, 255, 255, 0.9);
+  color: #6200ee;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  color: white;
+  box-shadow: 0 5px 15px rgba(123, 47, 247, 0.3);
+}
+
+/* 🌙 لینک‌ها در حالت دارک */
+.app-container.dark .nav-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #bb86fc;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.app-container.dark .nav-btn:hover {
+  background: linear-gradient(135deg, #9b5de5, #7b2ff7);
+  color: #fff;
+  border: none;
+  box-shadow: 0 5px 15px rgba(155, 93, 229, 0.4);
+}
+
+/* ---------- دکمه حالت روشن / تاریک ---------- */
+.mode-toggle {
+  background: rgba(255, 255, 255, 0.9);
+  color: #6200ee;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mode-toggle:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  color: #fff;
+}
+
+/* 🌙 حالت دارک دکمه تغییر حالت */
+.app-container.dark .mode-toggle {
+  background: rgba(255, 255, 255, 0.08);
+  color: #bb86fc;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.app-container.dark .mode-toggle:hover {
+  background: linear-gradient(135deg, #9b5de5, #7b2ff7);
+  color: #fff;
+}
+
+/* ---------- دکمه خروج ---------- */
+.logout-btn {
+  background: linear-gradient(135deg, #ff4d4d, #e60000);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(255, 77, 77, 0.3);
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+/* 🌙 حالت دارک دکمه خروج */
+.app-container.dark .logout-btn {
+  background: linear-gradient(135deg, #cf6679, #ff4d4d);
+  color: #121212;
+}
+
+.app-container.dark .logout-btn:hover {
+  color: white;
+}
+
+/* ---------- انیمیشن ---------- */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  height: 100%;
+  overflow-x: hidden;
+}

@@ -1,0 +1,23 @@
+@import "@fontsource/vazirmatn";
+
+/* حذف تمام فونت‌های پیش‌فرض و تنظیم فونت سایت */
+body {
+  margin: 0;
+  font-family: "Vazirmatn", sans-serif;
+  direction: rtl;
+  text-align: right;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+/* برای اطمینان از اینکه همه متن‌ها از همین فونت استفاده کنن */
+* {
+  font-family: "Vazirmatn", sans-serif !important;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: "Vazirmatn", monospace;
+}
