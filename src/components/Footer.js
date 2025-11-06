@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaTelegramPlane, FaGithub } from "react-icons/fa";
+import { FaTelegramPlane, FaInstagram, FaGithub } from "react-icons/fa";
 import "./Footer.css";
 
-export default function Footer() {
+function Footer() {
     return (
         <footer className="footer">
-            <div className="footer-content">
+            <div className="footer-top">
                 <div className="footer-logo">
-                    <img src="/favicon.ico" alt="MobileLand" />
+                    <img src="/favicon.ico" alt="logo" />
                     <span className="brand">MobileLand</span>
                 </div>
 
@@ -18,16 +18,24 @@ export default function Footer() {
                     <Link to="/contact">تماس با ما</Link>
                 </nav>
 
-                <div className="footer-socials">
-                    <a href="#instagram" title="Instagram"><FaInstagram /></a>
-                    <a href="#telegram" title="Telegram"><FaTelegramPlane /></a>
-                    <a href="#github" title="GitHub"><FaGithub /></a>
+                <div className="footer-social">
+                    <a href="https://github.com" target="_blank" rel="noreferrer">
+                        <FaGithub />
+                    </a>
+                    <a href="https://t.me" target="_blank" rel="noreferrer">
+                        <FaTelegramPlane />
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noreferrer">
+                        <FaInstagram />
+                    </a>
                 </div>
             </div>
 
             <p className="footer-copy">
-                © {new Date().getFullYear()} MobileLand — تمام حقوق محفوظ است.
+                © {new Date().getFullYear()} MobileLand – تمام حقوق محفوظ است.
             </p>
         </footer>
     );
 }
+
+export default Footer;

@@ -280,3 +280,35 @@ body {
     gap: 16px;
   }
 }
+
+.cart-icon {
+  margin-right: 12px;
+  text-decoration: none;
+  color: #00eaff;
+  font-weight: 700;
+  font-size: 18px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.cart-icon:hover {
+  color: #00ffff;
+  transform: scale(1.1);
+}
+
+.cart-icon span {
+  color: #fff;
+  background: #00b4d8;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 13px;
+  margin-right: 4px;
+}
+
+/* دارک مود */
+.app-container.dark .cart-icon {
+  color: #00ffff;
+}
+
+.app-container.dark .cart-icon span {
+  background: #007a99;
+}

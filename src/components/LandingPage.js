@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./LandingPage.css";
 
 export default function LandingPage({ addToCart }) {
@@ -17,7 +16,7 @@ export default function LandingPage({ addToCart }) {
         { id: 9, name: "Asus ROG Phone 8", price: 62900000, img: "/images/rog8.png" },
     ];
 
-    const totalItems = Object.values(cartCounts).reduce((a, b) => a + b, 0);
+
 
     const handleAdd = (p) => {
         setCartCounts((prev) => ({
@@ -110,11 +109,6 @@ export default function LandingPage({ addToCart }) {
                 })}
             </div>
 
-            <footer className="footer">
-                <Link to="/cart" className="nav-btn">
-                    سبد خرید: {totalItems} محصول
-                </Link>
-            </footer>
         </div>
     );
 }

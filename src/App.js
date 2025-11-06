@@ -66,6 +66,11 @@ function App() {
             <span className="nav-logo-text">MobileLand</span>
           </Link>
 
+          {/* 🛒 سبد خرید کنار لوگو */}
+          <Link to="/cart" className="cart-icon" onClick={() => setMenuOpen(false)}>
+            🛒 <span>{cart.length}</span>
+          </Link>
+
           <button
             className="hamburger"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -79,9 +84,6 @@ function App() {
           <Link to="/" onClick={() => setMenuOpen(false)}>خانه</Link>
           <Link to="/about" onClick={() => setMenuOpen(false)}>درباره ما</Link>
           <Link to="/contact" onClick={() => setMenuOpen(false)}>تماس با ما</Link>
-          <Link to="/cart" onClick={() => setMenuOpen(false)}>
-            🛒 سبد خرید ({cart.length})
-          </Link>
 
           {!username ? (
             <Link to="/auth" onClick={() => setMenuOpen(false)}>
@@ -105,7 +107,6 @@ function App() {
         </div>
       </nav>
 
-
       {/* ======= ROUTES ======= */}
       <Routes>
         <Route path="/" element={<LandingPage addToCart={addToCart} />} />
@@ -127,7 +128,6 @@ function App() {
       <ToastContainer position="bottom-right" autoClose={2000} />
       <Footer />
     </div>
-
   );
 }
 
